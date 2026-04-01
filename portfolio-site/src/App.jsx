@@ -6,6 +6,8 @@ import About from "./components/About";
 import Skills from "./components/Skills";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
+import LiveSystems from "./components/LiveSystems";
+import Experience from "./components/Experience";
 
 export default function App() {
   return (
@@ -13,9 +15,11 @@ export default function App() {
       <Header />
       <main className="max-w-6xl mx-auto px-6 space-y-24">
         <Hero />
-        <Projects />
         <About />
         <Skills />
+        <LiveSystems />
+        <Projects />
+        <Experience />
         <Contact />
       </main>
       <Footer />

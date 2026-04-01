@@ -11,17 +11,18 @@ export default function About() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.4 }}
         >
-          <h3 className="text-2xl font-bold text-white">About Me</h3>
-          <p className="mt-4 text-gray-300 leading-relaxed">
-            Software Engineer with experience in building full-stack web applications,
-            real-time dashboards, and ERP systems for government and enterprise clients.
+          <h3 className="text-2xl font-bold text-white mb-6">About Me</h3>
+          <p className="text-gray-300 leading-relaxed mb-6">
+            Full-stack Software Engineer with 1.7+ years production experience.
+            Specializing in scalable backend, real-time systems, secure APIs for enterprise/gov clients.
           </p>
-          <h4 className="mt-6 font-semibold text-white">Work Experience Highlights</h4>
-          <ul className="mt-2 list-disc list-inside text-gray-300 space-y-1">
-            <li>Built and maintained full-stack e-commerce platforms for B2B/B2C ecosystems.</li>
-            <li>Developed IoT device-health monitoring with predictive analysis.</li>
-            <li>Designed secure REST APIs and implemented role-based dashboards.</li>
-          </ul>
+          <p className="text-gray-300 leading-relaxed mb-8">
+            Built HRMS, IoT monitoring, e-commerce - production-grade with 30+ users, 25+ APIs.
+          </p>
+          <h4 className="mt-6 font-semibold text-white mb-4">What Makes Me Different</h4>
+          <p className="text-gray-300">
+            Focus on system reliability, observability, postmortems - not just code.
+          </p>
         </motion.div>
 
         <motion.div
@@ -30,11 +31,12 @@ export default function About() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.4, delay: 0.1 }}
         >
-          <h4 className="font-semibold text-white">What I Care About</h4>
-          <ul className="mt-3 list-disc list-inside text-gray-300 space-y-1">
-            <li>Reliability over cleverness</li>
-            <li>Clear APIs and clean error handling</li>
-            <li>Monitoring, observability, and postmortems</li>
+          <h4 className="font-semibold text-white text-xl mb-6">Core Expertise</h4>
+          <ul className="list-disc list-inside text-gray-300 space-y-2">
+            <li>Production backend architecture (Node/Python)</li>
+            <li>Real-time WebSockets + dashboards</li>
+            <li>Secure JWT/RBAC authentication</li>
+            <li>Multi-user scalable systems</li>
           </ul>
         </motion.div>
       </div>

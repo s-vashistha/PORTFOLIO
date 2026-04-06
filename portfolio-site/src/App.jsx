@@ -8,6 +8,7 @@ import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 import LiveSystems from "./components/LiveSystems";
 import Experience from "./components/Experience";
+import Credentials from "./components/Credentials";
 
 export default function App() {
   return (
@@ -17,9 +18,10 @@ export default function App() {
         <Hero />
         <About />
         <Skills />
+        <Experience />
         <LiveSystems />
         <Projects />
-        <Experience />
+        <Credentials />
         <Contact />
       </main>
       <Footer />

@@ -1,23 +1,23 @@
 import React from 'react';
-import { motion } from 'framer-motion';
+import { motion as Motion } from 'framer-motion';
 
 export default function LiveSystems() {
   return (
     <section id="live" className="py-16">
       <div className="max-w-6xl mx-auto px-6">
-        <motion.h3
+        <Motion.h3
           initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.4 }}
           className="text-3xl font-bold text-white mb-8"
         >
           Live Production Systems
-        </motion.h3>
+        </Motion.h3>
         <p className="text-gray-300 text-lg mb-12">
-          Deployed systems powering real organizations - scalable & secure.
+          Resume-backed live work deployed for business and public-facing usage.
         </p>
         <div className="grid md:grid-cols-2 gap-8">
-          <motion.a
+          <Motion.a
             href="https://gengindia.com"
             target="_blank"
             rel="noopener noreferrer"
@@ -34,18 +34,17 @@ export default function LiveSystems() {
               <h4 className="text-2xl font-bold text-white">Geng India</h4>
             </div>
             <p className="text-gray-300 text-lg mb-6 leading-relaxed">
-              Full-stack HRMS platform for government staffing. 
-              Secure APIs, role-based dashboards, 30+ users.
+              Engineered and deployed a business website with performance-focused frontend architecture, SEO-friendly structure, and responsive behavior across devices.
             </p>
             <div className="flex gap-2 flex-wrap">
-              <span className="px-3 py-1 bg-blue-500/20 text-blue-300 rounded-full text-xs">React</span>
-              <span className="px-3 py-1 bg-purple-500/20 text-purple-300 rounded-full text-xs">Node.js</span>
-              <span className="px-3 py-1 bg-indigo-500/20 text-indigo-300 rounded-full text-xs">PostgreSQL</span>
-              <span className="px-3 py-1 bg-emerald-500/20 text-emerald-300 rounded-full text-xs">JWT/RBAC</span>
+              <span className="px-3 py-1 bg-blue-500/20 text-blue-300 rounded-full text-xs">React Architecture</span>
+              <span className="px-3 py-1 bg-purple-500/20 text-purple-300 rounded-full text-xs">SEO-Friendly</span>
+              <span className="px-3 py-1 bg-indigo-500/20 text-indigo-300 rounded-full text-xs">Performance</span>
+              <span className="px-3 py-1 bg-emerald-500/20 text-emerald-300 rounded-full text-xs">Responsive UI</span>
             </div>
-          </motion.a>
+          </Motion.a>
 
-          <motion.a
+          <Motion.a
             href="https://kbmc.gov.in"
             target="_blank"
             rel="noopener noreferrer"
@@ -62,16 +61,15 @@ export default function LiveSystems() {
               <h4 className="text-2xl font-bold text-white">KBMC Portal</h4>
             </div>
             <p className="text-gray-300 text-lg mb-6 leading-relaxed">
-              Government employee management system with analytics.
-              Real-time dashboards, secure auth, API integrations.
+              Delivered a government website with structured data presentation, accessibility-minded UX, and stable performance for public usage.
             </p>
             <div className="flex gap-2 flex-wrap">
-              <span className="px-3 py-1 bg-indigo-500/20 text-indigo-300 rounded-full text-xs">React</span>
-              <span className="px-3 py-1 bg-orange-500/20 text-orange-300 rounded-full text-xs">Python</span>
-              <span className="px-3 py-1 bg-teal-500/20 text-teal-300 rounded-full text-xs">MySQL</span>
-              <span className="px-3 py-1 bg-violet-500/20 text-violet-300 rounded-full text-xs">REST APIs</span>
+              <span className="px-3 py-1 bg-indigo-500/20 text-indigo-300 rounded-full text-xs">Structured Data</span>
+              <span className="px-3 py-1 bg-orange-500/20 text-orange-300 rounded-full text-xs">Accessibility</span>
+              <span className="px-3 py-1 bg-teal-500/20 text-teal-300 rounded-full text-xs">High Availability</span>
+              <span className="px-3 py-1 bg-violet-500/20 text-violet-300 rounded-full text-xs">Responsive UI</span>
             </div>
-          </motion.a>
+          </Motion.a>
         </div>
       </div>
     </section>

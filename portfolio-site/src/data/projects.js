@@ -1,41 +1,44 @@
 export default [
   {
     id: 1,
-    title: "Live Device Health Monitoring",
-    description: "Full-stack real-time IoT dashboard alerting on device failures before they happen. Built to solve unreliable field device uptime in remote manufacturing.",
-    why: "Client needed 99.9% device uptime; traditional polling missed anomalies.",
-    architecture: "React frontend + Node/Express backend with WebSocket bi-directional comms + PostgreSQL for time-series data + ML model for predictive failure (threshold alerts).",
-    challenge: "Handled 1K+ concurrent device streams with sub-100ms latency.",
-    impact: "Reduced downtime alerts by 45%; deployed for 50+ devices in production.",
-    tags: ["React", "Node", "PostgreSQL", "WebSockets"],
-    demo: "https://device-monitor.example.com",
-    github: "https://github.com/yourusername/device-health-monitor",
-    link: "#"
+    title: "Production HRMS Platform",
+    description: "A modular HRMS platform built for secure internal workforce management, role-based access, and structured day-to-day operations.",
+    architecture: "React.js frontend, Node.js and Express services, PostgreSQL data layer, and JWT-based authentication with RBAC controls.",
+    challenge: "Designing a maintainable multi-user platform that could support internal workflows while keeping access control and operations secure.",
+    impact: "Serves 30+ users in production and reduces manual effort across core operational workflows.",
+    responsibilities: [
+      "Architected modular application flows for workforce and operations management.",
+      "Built secure REST endpoints for role-specific access and internal services.",
+      "Delivered the platform as a production-grade system for secure internal usage."
+    ],
+    tags: ["React.js", "Node.js", "PostgreSQL", "JWT", "RBAC"],
   },
   {
     id: 2,
-    title: "Revolutionize Indian Elections",
-    description: "Secure e-voting prototype with biometric auth, blockchain-inspired audit trails, and AI anomaly detection for fraud prevention.",
-    why: "Paper ballots cause delays/errors; needed tamper-proof digital alternative for large-scale simulations.",
-    architecture: "Python Flask backend + React dashboard + TensorFlow for fraud ML + biometric API integration + PostgreSQL with audit logs.",
-    challenge: "Ensured zero-knowledge proofs for voter privacy while enabling real-time vote tallies.",
-    impact: "Simulated 10K voters; detected 98% mock fraud attempts; used in university election research.",
-    tags: ["Python", "React", "AI"],
-    demo: "https://elections.example.com",
-    github: "https://github.com/yourusername/election-revolution",
-    link: "#"
+    title: "Real-Time Device Monitoring System",
+    description: "A live IoT monitoring platform that streams telemetry to responsive dashboards for visibility, tracking, and system awareness.",
+    architecture: "React-based dashboards, Node.js backend services, WebSocket communication, JWT-protected access, and CI/CD deployment through GitHub Actions on Render.",
+    challenge: "Keeping live telemetry streams reliable while also making dashboards fast, readable, and deployable through a streamlined pipeline.",
+    impact: "Enabled secure live telemetry monitoring, responsive analytics, and production-ready deployment workflows.",
+    responsibilities: [
+      "Implemented live device telemetry handling with WebSockets.",
+      "Established secure backend services with JWT authentication.",
+      "Built responsive dashboards for analytics and performance visualization."
+    ],
+    tags: ["React.js", "Node.js", "WebSockets", "JWT", "GitHub Actions", "Render"],
   },
   {
     id: 3,
     title: "Inventory Management Automation",
-    description: "Hybrid CLI/GUI system automating stock tracking, low-stock predictions, and supplier reorder emails for small warehouses.",
-    why: "Manual Excel tracking led to 20% stockouts; automated to save hours weekly.",
-    architecture: "Python core + Tkinter GUI + MySQL + Pandas for analytics + SMTP for alerts + cron jobs for daily scans.",
-    challenge: "Integrated barcode scanner API; handled fuzzy search for 5K+ SKUs.",
-    impact: "Cut stock errors by 40%; processed 500+ orders/day for client warehouse.",
-    tags: ["Python", "Tkinter", "MySQL"],
-    demo: "https://inventory.example.com",
-    github: "https://github.com/yourusername/inventory-automation",
-    link: "#"
+    description: "A Python-based inventory automation system for stock tracking, automated reordering, supplier validation, and internal reporting workflows.",
+    architecture: "Python application logic, normalized data design for inventory and supplier records, CSV-based reporting, and scraping-assisted validation for products and suppliers.",
+    challenge: "Combining reorder automation, reporting, and validation workflows in a lightweight system that remained practical for operational use.",
+    impact: "Improved inventory visibility, automated reorder decisions, and strengthened consistency across supplier and product data.",
+    responsibilities: [
+      "Built stock tracking and automated reordering flows.",
+      "Added role-based access control and CSV reporting support.",
+      "Integrated web scraping for supplier and product validation."
+    ],
+    tags: ["Python", "CSV", "RBAC", "Web Scraping", "Database Design"],
   },
 ];

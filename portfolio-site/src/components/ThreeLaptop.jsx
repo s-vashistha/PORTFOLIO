@@ -5,7 +5,8 @@ import * as THREE from "three";
 
 function LaptopModel({ mouse }) {
   const group = useRef();
-  const { scene } = useGLTF("/models/laptop.glb");
+  const modelUrl = `${import.meta.env.BASE_URL}models/laptop.glb`;
+  const { scene } = useGLTF(modelUrl);
 
   // Make screen glow if exists
   useEffect(() => {

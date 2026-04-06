@@ -4,11 +4,9 @@ export default function Header() {
   return (
     <header className="max-w-6xl mx-auto p-6 flex items-center justify-between gap-6 flex-wrap">
       <div className="flex items-center gap-3">
-        <img
-          src="/profile.jpg"
-          alt="Saumya"
-          className="w-14 h-14 rounded-full border-2 border-white/20 hover:rotate-12 transition-transform duration-500 ease-in-out"
-        />
+        <div className="w-14 h-14 rounded-full border-2 border-white/20 bg-gradient-to-br from-blue-500 to-indigo-700 flex items-center justify-center text-sm font-bold text-white">
+          SM
+        </div>
         <div>
           <h1 className="text-xl font-bold">Saumya Mishra</h1>
           <p className="text-sm text-gray-400">Full Stack Software Engineer</p>

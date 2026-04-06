@@ -3,6 +3,7 @@ import { motion as Motion } from "framer-motion";
 import ThreeLaptop from "./ThreeLaptop";
 
 export default function Hero() {
+  const resumeUrl = `${import.meta.env.BASE_URL}Saumya_Software_Engineer_Resume.pdf`;
   const highlights = [
     "1.7+ years building production software",
     "25+ secure REST endpoints delivered",
@@ -41,7 +42,7 @@ export default function Hero() {
             ))}
           </div>
           <div className="flex flex-wrap gap-4">
-            <a href="/Saumya_Software_Engineer_Resume.pdf" download className="btn-primary">
+            <a href={resumeUrl} download className="btn-primary">
               Download Resume
             </a>
             <a href="#experience" className="btn-secondary">

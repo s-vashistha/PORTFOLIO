@@ -2,6 +2,8 @@ import React from "react";
 import { motion as Motion } from "framer-motion";
 
 export default function Contact() {
+  const resumeUrl = `${import.meta.env.BASE_URL}Saumya_Software_Engineer_Resume.pdf`;
+
   return (
     <section id="contact" className="py-16">
       <div className="max-w-4xl mx-auto px-6">
@@ -71,7 +73,7 @@ export default function Contact() {
                 GitHub
               </a>
               <a
-                href="/Saumya_Software_Engineer_Resume.pdf"
+                href={resumeUrl}
                 download
                 className="btn-secondary"
               >

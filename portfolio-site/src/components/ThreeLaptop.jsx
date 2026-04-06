@@ -46,8 +46,11 @@ export default function ThreeLaptop() {
   };
 
   return (
-    <div style={{ height: "100%", width: "100%" }} onMouseMove={handleMouseMove}>
-      <Canvas camera={{ position: [0, 1, 6], fov: 50 }}>
+    <div className="h-full w-full" onMouseMove={handleMouseMove}>
+      <Canvas
+          style={{ width: "110%", height: "100%" }}
+          camera={{ position: [0, 1, 4], fov: 50 }}
+        >
         {/* Dark ambient light */}
         <ambientLight intensity={0.15} color="#111111" />
 
@@ -56,7 +59,7 @@ export default function ThreeLaptop() {
         <pointLight position={[-3, 2, -3]} intensity={0.5} color="#003366" />
 
         {/* Stage gives soft shadows and environment */}
-        <Stage environment="city" intensity={0.2} adjustCamera={false}>
+        <Stage environment="city" intensity={0.2} adjustCamera>
           <LaptopModel mouse={mouse} />
         </Stage>
 

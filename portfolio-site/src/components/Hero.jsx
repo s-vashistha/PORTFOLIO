@@ -55,7 +55,7 @@ export default function Hero() {
         </Motion.div>
 
         <Motion.div
-          className="h-80 bg-white/10 backdrop-blur-lg p-4 rounded-2xl shadow-lg border border-gray-700"
+          className="h-[500px] w-full bg-white/10 backdrop-blur-lg p-4 rounded-2xl shadow-lg border border-gray-700"
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.6, delay: 0.1 }}

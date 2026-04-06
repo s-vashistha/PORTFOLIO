@@ -5,8 +5,8 @@ import ThreeLaptop from "./ThreeLaptop";
 export default function Hero() {
   const resumeUrl = `${import.meta.env.BASE_URL}Saumya_Software_Engineer_Resume.pdf`;
   const highlights = [
-    "1.7+ years building production software",
-    "25+ secure REST endpoints delivered",
+    "1.8+ years building production software",
+    "45+ secure REST endpoints delivered",
     "30+ users supported in enterprise workflows",
     "Real-time systems, HRMS, and automation pipelines",
   ];
@@ -26,7 +26,7 @@ export default function Hero() {
             </span>
           </h1>
           <p className="text-lg text-gray-300 mb-6">
-            Full Stack Software Engineer with 1.7+ years of experience building scalable web applications with React.js, Node.js, and PostgreSQL.
+            Full Stack Software Engineer with 1.8+ years of experience building scalable web applications with React.js, Node.js, and PostgreSQL.
           </p>
           <p className="text-lg text-gray-300 mb-8">
             I build modular enterprise platforms, HRMS workflows, monitoring dashboards, and automation pipelines with JWT auth, WebSockets, CI/CD, and production deployment in mind.

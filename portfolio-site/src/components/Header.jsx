@@ -20,7 +20,7 @@ export default function Header() {
         <a href="#projects" className="hover:text-white transition">Projects</a>
         <a href="#credentials" className="hover:text-white transition">Credentials</a>
         <a href="#contact" className="hover:text-white transition">Contact</a>
-        <a href="https://github.com/saumyamishra" target="_blank" rel="noopener noreferrer" className="hover:text-white transition">GitHub</a>
+        <a href="https://github.com/s-vashistha" target="_blank" rel="noopener noreferrer" className="hover:text-white transition">GitHub</a>
       </nav>
     </header>
   );

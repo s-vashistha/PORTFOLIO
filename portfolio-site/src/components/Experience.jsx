@@ -37,7 +37,7 @@ export default function Experience() {
                 <h5 className="font-semibold text-white mb-3">Key Responsibilities</h5>
                 <ul className="space-y-2 text-gray-300">
                   <li>Architected modular enterprise applications serving 30+ users and improving workflow efficiency.</li>
-                  <li>Engineered 25+ secure REST endpoints with Node.js and JWT for scalable internal access.</li>
+                  <li>Engineered 45+ secure REST endpoints with Node.js and JWT for scalable internal access.</li>
                   <li>Delivered a production-grade HRMS platform for role-based workforce management.</li>
                   <li>Orchestrated automated data pipelines using Selenium and BeautifulSoup for structured extraction.</li>
                 </ul>
@@ -59,7 +59,7 @@ export default function Experience() {
             <div className="bg-gradient-to-r from-emerald-500/10 to-blue-500/10 p-4 rounded-2xl border border-emerald-500/30">
               <h5 className="font-bold text-emerald-400 mb-2">Impact</h5>
               <p className="text-emerald-300">
-                30+ users supported | 25+ secure endpoints | production-grade HRMS delivery | automated extraction pipelines
+                30+ users supported | 45+ secure endpoints | production-grade HRMS delivery | automated extraction pipelines
               </p>
             </div>
           </Motion.div>

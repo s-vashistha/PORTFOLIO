@@ -65,7 +65,7 @@ export default function Contact() {
                 Send
               </button>
               <a
-                href="https://github.com/saumyamishra"
+                href="https://github.com/s-vashistha"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn-secondary"

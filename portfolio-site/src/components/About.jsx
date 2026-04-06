@@ -23,7 +23,7 @@ export default function About() {
             I am a Full Stack Software Engineer focused on building dependable software for real organizations. My work spans enterprise portals, secure backend services, real-time monitoring systems, and responsive interfaces for business and government-facing platforms.
           </p>
           <p className="text-gray-300 leading-relaxed mb-8">
-            Across 1.7+ years of hands-on experience, I have delivered HRMS workflows, device monitoring dashboards, structured data platforms, and automation utilities with a strong emphasis on maintainability, security, and production readiness.
+            Across 1.8+ years of hands-on experience, I have delivered HRMS workflows, device monitoring dashboards, structured data platforms, and automation utilities with a strong emphasis on maintainability, security, and production readiness.
           </p>
           <div className="flex flex-wrap gap-2">
             <span className="px-3 py-1 rounded-full bg-blue-500/20 text-blue-300 text-xs border border-blue-500/30">React.js</span>

@@ -1,4 +1,4 @@
-import{r as e,j as u}from"./index-DYqvi1F0.js";import{at as m,J as R,aS as A,u as b,aU as d,o as U,V as j,C as S,a4 as E}from"./constants-YsJicRNo.js";const h=A>=154?"opaque_fragment":"output_fragment";class C extends R{constructor(r){super(r),this.onBeforeCompile=(t,n)=>{const{isWebGL2:s}=n.capabilities;t.fragmentShader=t.fragmentShader.replace(`#include <${h}>`,`
+import{r as e,j as u}from"./index-gmHXxhpf.js";import{at as m,J as R,aS as A,u as b,aU as d,o as U,V as j,C as S,a4 as E}from"./constants-DffWuvG_.js";const h=A>=154?"opaque_fragment":"output_fragment";class C extends R{constructor(r){super(r),this.onBeforeCompile=(t,n)=>{const{isWebGL2:s}=n.capabilities;t.fragmentShader=t.fragmentShader.replace(`#include <${h}>`,`
         ${s?`#include <${h}>`:`#extension GL_OES_standard_derivatives : enable
 #include <${h}>`}
       vec2 cxy = 2.0 * gl_PointCoord - 1.0;

@@ -16,7 +16,8 @@ export default function About() {
 
   return (
     <section id="about" className="py-20">
-      <div className="section-shell grid gap-8 lg:grid-cols-[0.8fr_1.2fr] lg:items-start">
+      {/* <div className="section-shell grid gap-8 lg:grid-cols-[0.8fr_1.2fr] lg:items-start"> */}
+        <div className="section-shell">
         {/* <Motion.div
           className="overflow-hidden rounded-lg border border-white/10 bg-white/[0.055]"
           initial={{ opacity: 0, y: 20 }}
@@ -30,8 +31,10 @@ export default function About() {
           />
         </Motion.div> */}
 
+        {/* <Motion.div
+          className="surface-panel p-6 sm:p-8" */}
         <Motion.div
-          className="surface-panel p-6 sm:p-8"
+          className="surface-panel p-6 sm:p-8 max-w-4xl mx-auto"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.4, delay: 0.05 }}

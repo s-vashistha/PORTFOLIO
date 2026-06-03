@@ -1,38 +1,48 @@
-import React from "react";
+import React, { Suspense, lazy } from "react";
 import { motion as Motion } from "framer-motion";
 import skills from "../data/skills";
-import ThreeScene from "./ThreeSphere";
+
+const ThreeScene = lazy(() => import("./ThreeSphere"));
+
+function formatCategory(category) {
+  return category.replace(/([A-Z])/g, " $1").replace(/^./, (value) => value.toUpperCase()).trim();
+}
 
 export default function Skills() {
   return (
-    <section id="skills" className="py-16 relative">
-      <div className="absolute inset-0 -z-10 opacity-30">
-        <ThreeScene />
+    <section id="skills" className="relative py-20 overflow-hidden">
+      {/* Background 3D Sphere */}
+      <div className="absolute inset-0 -z-10 opacity-20">
+        <Suspense fallback={null}>
+          <ThreeScene />
+        </Suspense>
       </div>
-      <div className="max-w-6xl mx-auto px-6">
+
+      <div className="section-shell relative z-10">
         <Motion.div
-          className="bg-white/10 backdrop-blur-lg p-6 rounded-2xl shadow-md border border-gray-700"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.4 }}
         >
-          <h3 className="font-semibold text-white text-2xl mb-3">Technical Skills</h3>
-          <p className="text-gray-300 mb-8">
-            The stack below mirrors the tools and concepts I use across enterprise web applications, backend services, automation workflows, and deployment pipelines.
+          <h2 className="section-title">Production-grade engineering stack.</h2>
+          <p className="section-copy mt-5">
+            Technologies and practices for building secure, scalable systems: from backend APIs and databases
+            to responsive frontends, real-time systems, and deployment pipelines. Each tool chosen for stability and production readiness.
           </p>
-          <div className="space-y-6">
+
+          <div className="mt-10 grid gap-4 md:grid-cols-2">
             {Object.entries(skills).map(([category, items]) => (
-              <div key={category}>
-                <h5 className="font-bold text-white text-lg mb-3 capitalize" style={{ color: "hsl(210, 100%, 70%)" }}>
-                  {category.replace(/([A-Z])/g, " $1").trim()}
-                </h5>
-                <div className="flex flex-wrap gap-2">
-                  {items.map((s) => (
+              <div key={category} className="surface-panel p-5">
+                <h3 className="text-lg font-black text-white">
+                  {formatCategory(category)}
+                </h3>
+                <div className="mt-4 flex flex-wrap gap-2">
+                  {items.map((skill) => (
                     <span
-                      key={s}
-                      className="px-3 py-1 rounded-full bg-blue-500/20 text-blue-300 text-xs font-medium border border-blue-500/30 hover:bg-blue-500/30 transition"
+                      key={skill}
+                      className="chip"
                     >
-                      {s}
+                      {skill}
                     </span>
                   ))}
                 </div>

@@ -6,94 +6,112 @@ export default function Projects() {
   const [selectedProject, setSelectedProject] = useState(null);
 
   return (
-    <section id="projects" className="py-16">
-      <div className="max-w-6xl mx-auto px-6">
-        <Motion.h3
+    <section id="projects" className="py-20">
+      <div className="section-shell">
+        <Motion.div
           initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.4 }}
-          className="text-3xl font-bold text-white mb-4"
         >
-          Production Projects
-        </Motion.h3>
-        <p className="text-gray-300 mb-8 text-lg">
-          Core systems and internal products aligned with the responsibilities listed in my resume.
-        </p>
+          <h2 className="section-title">Production case studies.</h2>
+          <p className="section-copy mt-4">
+            Core systems and internal products aligned with the responsibilities listed in my resume.
+            Each card opens into the architecture, challenge, and ownership details.
+          </p>
+        </Motion.div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {projects.map((project, idx) => (
-            <Motion.div
+        <div className="mt-10 grid gap-5 lg:grid-cols-3">
+          {projects.map((project, index) => (
+            <Motion.button
               key={project.id}
-              className="block rounded-2xl p-5 bg-white/10 backdrop-blur-lg border border-gray-700 shadow-md hover:shadow-xl hover:scale-[1.02] transition cursor-pointer"
+              type="button"
+              className="group flex min-h-[330px] flex-col rounded-lg border border-white/10 bg-white/[0.055] p-5 text-left shadow-xl shadow-black/10 transition hover:-translate-y-1 hover:border-teal-300/40 hover:bg-white/[0.08]"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: idx * 0.1 }}
+              transition={{ delay: index * 0.08 }}
               onClick={() => setSelectedProject(project)}
             >
-              <h4 className="font-semibold text-lg text-white">{project.title}</h4>
-              <p className="mt-2 text-sm text-gray-300">{project.description}</p>
-              <div className="mt-3 flex gap-2 flex-wrap text-xs">
+              <span className="text-sm font-black text-teal-300">0{index + 1}</span>
+              <h3 className="mt-4 text-2xl font-black leading-tight text-white">{project.title}</h3>
+              <p className="mt-4 text-sm leading-6 text-slate-300">{project.description}</p>
+              <div className="mt-5 flex flex-wrap gap-2">
                 {project.tags.map((tag) => (
-                  <span key={tag} className="px-2 py-1 bg-blue-500/20 text-blue-300 rounded-full">
+                  <span key={tag} className="chip">
                     {tag}
                   </span>
                 ))}
               </div>
-              <p className="mt-4 text-xs text-emerald-400 font-semibold">{project.impact}</p>
-            </Motion.div>
+              <p className="mt-auto border-t border-white/10 pt-5 text-sm font-bold leading-6 text-emerald-300">
+                {project.impact}
+              </p>
+            </Motion.button>
           ))}
         </div>
       </div>
 
       {selectedProject && (
         <div
-          className="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 flex items-center justify-center p-4"
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/75 p-4 backdrop-blur-sm"
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="project-dialog-title"
           onClick={() => setSelectedProject(null)}
         >
           <div
-            className="bg-white/10 backdrop-blur-lg border border-gray-700 rounded-3xl p-8 max-w-2xl max-h-[80vh] overflow-auto shadow-2xl"
-            onClick={(e) => e.stopPropagation()}
+            className="max-h-[86vh] w-full max-w-3xl overflow-auto rounded-lg border border-white/10 bg-[#0b1016] p-6 shadow-2xl"
+            onClick={(event) => event.stopPropagation()}
           >
-            <button
-              className="float-right text-sm font-semibold text-gray-400 hover:text-white mb-4 px-3 py-2 rounded-full hover:bg-white/10"
-              onClick={() => setSelectedProject(null)}
-            >
-              Close
-            </button>
-            <h2 className="text-3xl font-bold text-white mb-4">{selectedProject.title}</h2>
-            <p className="text-gray-300 mb-6 text-lg">{selectedProject.description}</p>
+            <div className="flex items-start justify-between gap-4">
+              <div>
+                <p className="text-sm font-black uppercase tracking-[0.16em] text-teal-300">Case study</p>
+                <h2 id="project-dialog-title" className="mt-2 text-3xl font-black text-white">
+                  {selectedProject.title}
+                </h2>
+              </div>
+              <button
+                type="button"
+                className="rounded-lg border border-white/10 px-3 py-2 text-sm font-bold text-slate-300 transition hover:bg-white/10 hover:text-white"
+                onClick={() => setSelectedProject(null)}
+              >
+                Close
+              </button>
+            </div>
 
-            <div className="space-y-4 mb-6">
-              <div>
-                <h4 className="font-bold text-white mb-2">Impact</h4>
-                <p className="text-emerald-400 font-semibold">{selectedProject.impact}</p>
+            <p className="mt-5 text-lg leading-8 text-slate-300">{selectedProject.description}</p>
+
+            <div className="mt-7 grid gap-5">
+              <div className="rounded-lg border border-emerald-300/20 bg-emerald-300/10 p-4">
+                <h3 className="font-black text-emerald-200">Impact</h3>
+                <p className="mt-2 text-emerald-100">{selectedProject.impact}</p>
               </div>
               <div>
-                <h4 className="font-bold text-white mb-2">Architecture</h4>
-                <p className="text-gray-300">{selectedProject.architecture}</p>
+                <h3 className="font-black text-white">Architecture</h3>
+                <p className="mt-2 leading-7 text-slate-300">{selectedProject.architecture}</p>
               </div>
               <div>
-                <h4 className="font-bold text-white mb-2">Challenge</h4>
-                <p className="text-yellow-300">{selectedProject.challenge}</p>
+                <h3 className="font-black text-white">Challenge</h3>
+                <p className="mt-2 leading-7 text-amber-200">{selectedProject.challenge}</p>
               </div>
               <div>
-                <h4 className="font-bold text-white mb-2">Responsibilities</h4>
-                <ul className="space-y-2 text-gray-300">
+                <h3 className="font-black text-white">Responsibilities</h3>
+                <ul className="mt-3 grid gap-3 text-slate-300 sm:grid-cols-2">
                   {selectedProject.responsibilities.map((responsibility) => (
-                    <li key={responsibility}>{responsibility}</li>
+                    <li key={responsibility} className="leading-7">
+                      {responsibility}
+                    </li>
                   ))}
                 </ul>
               </div>
             </div>
 
             {(selectedProject.demo || selectedProject.github) && (
-              <div className="flex gap-4">
+              <div className="mt-7 flex flex-wrap gap-3">
                 {selectedProject.demo && (
                   <a
                     href={selectedProject.demo}
                     target="_blank"
                     rel="noreferrer"
-                    className="flex-1 bg-green-600 text-white py-3 px-6 rounded-xl font-bold text-center hover:bg-green-500 transition"
+                    className="btn-primary"
                   >
                     Live Demo
                   </a>
@@ -103,7 +121,7 @@ export default function Projects() {
                     href={selectedProject.github}
                     target="_blank"
                     rel="noreferrer"
-                    className="flex-1 border border-white/50 text-white py-3 px-6 rounded-xl font-bold text-center hover:bg-white/10 transition"
+                    className="btn-secondary"
                   >
                     GitHub
                   </a>

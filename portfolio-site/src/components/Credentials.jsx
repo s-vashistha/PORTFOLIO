@@ -10,45 +10,35 @@ const achievements = [
 
 export default function Credentials() {
   return (
-    <section id="credentials" className="py-16">
-      <div className="max-w-6xl mx-auto px-6 grid gap-8 md:grid-cols-2">
+    <section id="credentials" className="py-20">
+      <div className="section-shell grid gap-5 md:grid-cols-2">
         <Motion.div
-          className="bg-white/10 backdrop-blur-lg p-6 rounded-2xl shadow-md border border-gray-700"
+          className="surface-panel p-6 sm:p-8"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.4 }}
         >
-          <h3 className="text-2xl font-bold text-white mb-6">
-            Education
-          </h3>
-          <div className="space-y-3">
-            <p className="text-white font-semibold text-lg">
+          <h2 className="text-2xl font-black text-white">Education</h2>
+          <div className="mt-6 space-y-3">
+            <p className="text-lg font-bold text-white">
               Bachelor of Technology in Computer Science Engineering
             </p>
-            <p className="text-blue-300">
-              Ambalika Institute of Management and Technology
-            </p>
-            <p className="text-gray-300">
-              2020 - 2024
-            </p>
-            <p className="text-gray-300">
-              CGPA: 7.52
-            </p>
+            <p className="text-teal-300">Ambalika Institute of Management and Technology</p>
+            <p className="text-slate-300">2020 - 2024</p>
+            <p className="text-slate-300">CGPA: 7.52</p>
           </div>
         </Motion.div>
 
         <Motion.div
-          className="bg-white/10 backdrop-blur-lg p-6 rounded-2xl shadow-md border border-gray-700"
+          className="surface-panel p-6 sm:p-8"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.4, delay: 0.1 }}
         >
-          <h3 className="text-2xl font-bold text-white mb-6">
-            Achievements
-          </h3>
-          <ul className="space-y-3 text-gray-300">
+          <h2 className="text-2xl font-black text-white">Achievements</h2>
+          <ul className="mt-6 grid gap-3 text-slate-300">
             {achievements.map((achievement) => (
-              <li key={achievement} className="leading-relaxed">
+              <li key={achievement} className="leading-7">
                 {achievement}
               </li>
             ))}

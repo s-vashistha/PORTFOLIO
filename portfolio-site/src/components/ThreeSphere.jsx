@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useMemo, useRef } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { Points, PointMaterial } from "@react-three/drei";
 import * as THREE from "three";
@@ -19,9 +19,10 @@ function generateSpherePoints(count, radius) {
 
 function ParticleSphere({ count = 2000, radius = 2, mouse }) {
   const ref = useRef();
-  const sphere = generateSpherePoints(count, radius);
+  const sphere = useMemo(() => generateSpherePoints(count, radius), [count, radius]);
 
   useFrame(() => {
+    if (!ref.current) return;
     ref.current.rotation.y += 0.0015;
     ref.current.rotation.x += 0.0008;
     ref.current.rotation.y = THREE.MathUtils.lerp(

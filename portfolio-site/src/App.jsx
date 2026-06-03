@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Suspense, lazy } from "react";
 import Header from "./components/Header";
 import Hero from "./components/Hero";
 import Projects from "./components/Projects";
@@ -10,14 +10,27 @@ import LiveSystems from "./components/LiveSystems";
 import Experience from "./components/Experience";
 import Credentials from "./components/Credentials";
 
+const ThreeShowcase = lazy(() => import("./components/ThreeShowcase"));
+
 export default function App() {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-black via-[#0a0f1f] to-blue-900 text-gray-100 antialiased">
+    <div className="site-shell min-h-screen text-slate-100 antialiased">
       <Header />
-      <main className="max-w-6xl mx-auto px-6 space-y-24">
+      <main>
         <Hero />
         <About />
         <Skills />
+        <Suspense
+          fallback={
+            <section id="three-lab" className="py-20">
+              <div className="section-shell">
+                <div className="h-[420px] rounded-lg border border-white/10 bg-white/[0.045]" />
+              </div>
+            </section>
+          }
+        >
+          <ThreeShowcase />
+        </Suspense>
         <Experience />
         <LiveSystems />
         <Projects />

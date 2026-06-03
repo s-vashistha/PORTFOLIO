@@ -1,75 +1,65 @@
-import React from 'react';
-import { motion as Motion } from 'framer-motion';
+import React from "react";
+import { motion as Motion } from "framer-motion";
+
+const systems = [
+  {
+    title: "Geng India",
+    url: "https://gengindia.com",
+    copy: "Engineered and deployed a business website with performance-focused frontend architecture, SEO-friendly structure, and responsive behavior across devices.",
+    tags: ["React Architecture", "SEO-Friendly", "Performance", "Responsive UI"],
+  },
+  {
+    title: "KBMC Portal",
+    url: "https://kbmc.gov.in",
+    copy: "Delivered a government website with structured data presentation, accessibility-minded UX, and stable performance for public usage.",
+    tags: ["Structured Data", "Accessibility", "High Availability", "Responsive UI"],
+  },
+];
 
 export default function LiveSystems() {
   return (
-    <section id="live" className="py-16">
-      <div className="max-w-6xl mx-auto px-6">
-        <Motion.h3
+    <section id="live" className="py-20">
+      <div className="section-shell">
+        <Motion.div
           initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.4 }}
-          className="text-3xl font-bold text-white mb-8"
         >
-          Live Production Systems
-        </Motion.h3>
-        <p className="text-gray-300 text-lg mb-12">
-          Resume-backed live work deployed for business and public-facing usage.
-        </p>
-        <div className="grid md:grid-cols-2 gap-8">
-          <Motion.a
-            href="https://gengindia.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="group bg-white/5 backdrop-blur-lg border border-white/10 rounded-3xl p-8 hover:bg-white/10 transition-all hover:scale-105 shadow-xl hover:shadow-2xl"
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.5 }}
-          >
-            <div className="flex items-center gap-4 mb-6">
-              <div className="flex items-center gap-2 bg-green-500/20 text-green-400 px-4 py-2 rounded-full font-bold">
-                <span className="w-3 h-3 bg-green-400 rounded-full animate-pulse"></span>
-                LIVE
-              </div>
-              <h4 className="text-2xl font-bold text-white">Geng India</h4>
-            </div>
-            <p className="text-gray-300 text-lg mb-6 leading-relaxed">
-              Engineered and deployed a business website with performance-focused frontend architecture, SEO-friendly structure, and responsive behavior across devices.
-            </p>
-            <div className="flex gap-2 flex-wrap">
-              <span className="px-3 py-1 bg-blue-500/20 text-blue-300 rounded-full text-xs">React Architecture</span>
-              <span className="px-3 py-1 bg-purple-500/20 text-purple-300 rounded-full text-xs">SEO-Friendly</span>
-              <span className="px-3 py-1 bg-indigo-500/20 text-indigo-300 rounded-full text-xs">Performance</span>
-              <span className="px-3 py-1 bg-emerald-500/20 text-emerald-300 rounded-full text-xs">Responsive UI</span>
-            </div>
-          </Motion.a>
+          <h2 className="section-title">Live production systems.</h2>
+          <p className="section-copy mt-4">
+            Resume-backed live work deployed for business and public-facing usage.
+          </p>
+        </Motion.div>
 
-          <Motion.a
-            href="https://kbmc.gov.in"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="group bg-white/5 backdrop-blur-lg border border-white/10 rounded-3xl p-8 hover:bg-white/10 transition-all hover:scale-105 shadow-xl hover:shadow-2xl"
-            initial={{ opacity: 0, x: 20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-          >
-            <div className="flex items-center gap-4 mb-6">
-              <div className="flex items-center gap-2 bg-green-500/20 text-green-400 px-4 py-2 rounded-full font-bold">
-                <span className="w-3 h-3 bg-green-400 rounded-full animate-pulse"></span>
-                LIVE
+        <div className="mt-10 grid gap-5 md:grid-cols-2">
+          {systems.map((system, index) => (
+            <Motion.a
+              key={system.title}
+              href={system.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group rounded-lg border border-white/10 bg-white/[0.055] p-6 shadow-xl shadow-black/10 transition hover:-translate-y-1 hover:border-teal-300/40 hover:bg-white/[0.08]"
+              initial={{ opacity: 0, y: 18 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: index * 0.08 }}
+            >
+              <div className="flex items-center justify-between gap-4">
+                <h3 className="text-2xl font-black text-white">{system.title}</h3>
+                <span className="inline-flex items-center gap-2 rounded-full border border-emerald-300/25 bg-emerald-300/10 px-3 py-1 text-xs font-black text-emerald-200">
+                  <span className="h-2 w-2 rounded-full bg-emerald-300" />
+                  LIVE
+                </span>
               </div>
-              <h4 className="text-2xl font-bold text-white">KBMC Portal</h4>
-            </div>
-            <p className="text-gray-300 text-lg mb-6 leading-relaxed">
-              Delivered a government website with structured data presentation, accessibility-minded UX, and stable performance for public usage.
-            </p>
-            <div className="flex gap-2 flex-wrap">
-              <span className="px-3 py-1 bg-indigo-500/20 text-indigo-300 rounded-full text-xs">Structured Data</span>
-              <span className="px-3 py-1 bg-orange-500/20 text-orange-300 rounded-full text-xs">Accessibility</span>
-              <span className="px-3 py-1 bg-teal-500/20 text-teal-300 rounded-full text-xs">High Availability</span>
-              <span className="px-3 py-1 bg-violet-500/20 text-violet-300 rounded-full text-xs">Responsive UI</span>
-            </div>
-          </Motion.a>
+              <p className="mt-5 text-base leading-7 text-slate-300">{system.copy}</p>
+              <div className="mt-6 flex flex-wrap gap-2">
+                {system.tags.map((tag) => (
+                  <span key={tag} className="chip">
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            </Motion.a>
+          ))}
         </div>
       </div>
     </section>

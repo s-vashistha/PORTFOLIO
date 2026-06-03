@@ -1,6 +1,7 @@
 export default {
   languages: ["JavaScript (ES6+)", "TypeScript", "C++", "Python"],
   frontend: ["React.js", "Tailwind CSS", "Bootstrap", "Responsive UI Development"],
+  threeDAndMotion: ["Three.js", "@react-three/fiber", "@react-three/drei", "GLTF Loading", "Shader-Friendly Materials", "Framer Motion"],
   backend: ["Node.js", "Express.js", "Django", "RESTful API Development"],
   databases: ["PostgreSQL", "MySQL", "MongoDB", "Supabase"],
   devOpsAndCloud: ["Git", "GitHub Actions", "CI/CD", "Docker (Basics)", "Render Deployment"],

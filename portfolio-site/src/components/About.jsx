@@ -34,7 +34,7 @@ export default function About() {
         {/* <Motion.div
           className="surface-panel p-6 sm:p-8" */}
         <Motion.div
-          className="surface-panel p-6 sm:p-8 max-w-4xl mx-auto"
+          className="surface-panel p-6 sm:p-8 max-w-[1440px] mx-auto"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.4, delay: 0.05 }}

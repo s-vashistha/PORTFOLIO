@@ -1,5 +1,9 @@
-import React, { Suspense, lazy } from "react";
+import React, { Suspense, lazy, useEffect, useRef } from "react";
 import { motion as Motion } from "framer-motion";
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+gsap.registerPlugin(ScrollTrigger);
 
 const ThreeLaptop = lazy(() => import("./ThreeLaptop"));
 
@@ -13,6 +17,34 @@ const canvasNotes = ["GLTF model", "Pointer rig", "Lighting pass", "Orbit contro
 
 export default function Hero() {
   const resumeUrl = `${import.meta.env.BASE_URL}Saumya_ThreeJS_Developer.pdf`;
+  const heroRef = useRef();
+
+  useEffect(() => {
+    const el = heroRef.current;
+    if (!el) return;
+
+    // Use native scrolling. Removed Lenis smooth-scroller and RAF loop.
+
+    const gradient = el.querySelector('.gradient-text');
+    const notes = el.querySelector('.pointer-notes');
+
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: el,
+        start: 'top top',
+        end: 'bottom top',
+        scrub: 0.6,
+      }
+    });
+
+    if (gradient) tl.fromTo(gradient, { y: 40, opacity: 0 }, { y: 0, opacity: 1 }, 0);
+    if (notes) tl.fromTo(notes, { y: 40, opacity: 0 }, { y: 0, opacity: 1 }, 0);
+
+    return () => {
+      tl.kill();
+      ScrollTrigger.getAll().forEach((st) => st.kill());
+    };
+  }, []);
 
   return (
     <section id="top" className="relative overflow-hidden">
@@ -65,12 +97,12 @@ export default function Hero() {
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.6, delay: 0.1 }}
         >
-          <div className="absolute inset-0">
+          <div className="absolute inset-0" ref={heroRef}>
             <Suspense fallback={<div className="h-full w-full" />}>
               <ThreeLaptop />
             </Suspense>
           </div>
-          <div className="pointer-events-none absolute bottom-6 left-0 right-0 mx-auto grid max-w-md grid-cols-2 gap-2 px-4 sm:grid-cols-4">
+          <div className="pointer-events-none absolute bottom-6 left-0 right-0 mx-auto grid max-w-md grid-cols-2 gap-2 px-4 sm:grid-cols-4 pointer-notes">
             {canvasNotes.map((note) => (
               <span
                 key={note}

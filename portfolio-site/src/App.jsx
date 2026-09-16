@@ -9,6 +9,7 @@ import Footer from "./components/Footer";
 import LiveSystems from "./components/LiveSystems";
 import Experience from "./components/Experience";
 import Credentials from "./components/Credentials";
+import ThreeCaseStudy from "./components/ThreeCaseStudy";
 
 const ThreeShowcase = lazy(() => import("./components/ThreeShowcase"));
 
@@ -20,6 +21,19 @@ export default function App() {
         <Hero />
         <About />
         <Skills />
+        <ThreeCaseStudy
+          title="Interactive Laptop Showcase"
+          summary="An interactive GLTF-driven laptop scene showcasing model loading, emissive materials, and pointer-driven interactions."
+          challenges={[
+            'Deliver high-framerate canvas without layout shift',
+            'Optimize GLB assets and materials for web delivery',
+          ]}
+          solutions={[
+            'Cloned materials and tuned emissive properties',
+            'Gated heavy animations with prefers-reduced-motion',
+          ]}
+          tech={["Three.js", "R3F", "GLTF", "Drei"]}
+        />
         <Suspense
           fallback={
             <section id="three-lab" className="py-20">

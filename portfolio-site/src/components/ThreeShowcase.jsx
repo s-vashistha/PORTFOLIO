@@ -1,4 +1,6 @@
 import React, { Suspense, useMemo, useRef, useState } from "react";
+import usePrefersReducedMotion from "../hooks/usePrefersReducedMotion";
+import useScrollPause from "../hooks/useScrollPause";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
 import * as THREE from "three";
@@ -130,6 +132,7 @@ function DataNodes({ color, mode }) {
 function LabCanvas({ mode, paused }) {
   const mouse = useRef({ x: 0, y: 0 });
   const activeMode = labModes.find((item) => item.id === mode) ?? labModes[0];
+  const isScrolling = useScrollPause();
 
   const handlePointerMove = (event) => {
     const bounds = event.currentTarget.getBoundingClientRect();
@@ -143,7 +146,8 @@ function LabCanvas({ mode, paused }) {
       onPointerMove={handlePointerMove}
     >
       <Canvas
-        dpr={[1, 1.75]}
+        frameloop={isScrolling ? "demand" : "always"}
+        dpr={isScrolling ? [0.65, 0.95] : [1, 1.75]}
         gl={{ antialias: true, alpha: true }}
         camera={{ position: [0, 1.15, 5.35], fov: 45 }}
       >
@@ -152,7 +156,13 @@ function LabCanvas({ mode, paused }) {
         <pointLight position={[-3, 1.6, -2.4]} intensity={0.85} color="#38bdf8" />
         <pointLight position={[2.6, -1.8, 2]} intensity={0.55} color="#fbbf24" />
 
-        <Suspense fallback={null}>
+        <Suspense
+          fallback={
+            <mesh>
+              <boxGeometry args={[1, 1, 1]} />
+            </mesh>
+          }
+        >
           <group position={[0, -0.2, 0]}>
             <LaptopModel accent={activeMode.accent} mouse={mouse} position={[0, -0.65, 0]} scale={1.75} />
             <OrbitSystem color={activeMode.accent} paused={paused} />

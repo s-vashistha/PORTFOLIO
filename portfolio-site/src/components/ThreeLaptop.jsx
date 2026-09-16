@@ -1,4 +1,6 @@
 import React, { Suspense, useMemo, useRef } from "react";
+import usePrefersReducedMotion from "../hooks/usePrefersReducedMotion";
+import useScrollPause from "../hooks/useScrollPause";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { OrbitControls, Stage, useGLTF } from "@react-three/drei";
 import * as THREE from "three";
@@ -35,20 +37,24 @@ export function LaptopModel({
     return clone;
   }, [accent, scene]);
 
+  const prefersReduced = usePrefersReducedMotion();
+
   useFrame((state) => {
     if (!group.current) return;
     const mouseTarget = mouse?.current ?? { x: 0, y: 0 };
+    const lerpFactor = prefersReduced ? 0.12 : 0.05;
     group.current.rotation.y = THREE.MathUtils.lerp(
       group.current.rotation.y,
       mouseTarget.x * 0.42,
-      0.05
+      lerpFactor
     );
     group.current.rotation.x = THREE.MathUtils.lerp(
       group.current.rotation.x,
       -mouseTarget.y * 0.24,
-      0.05
+      lerpFactor
     );
-    group.current.position.y = position[1] + Math.sin(state.clock.elapsedTime * 0.8) * 0.06;
+    group.current.position.y =
+      position[1] + (prefersReduced ? 0 : Math.sin(state.clock.elapsedTime * 0.8) * 0.06);
   });
 
   return <primitive ref={group} object={preparedScene} position={position} scale={scale} />;
@@ -56,6 +62,7 @@ export function LaptopModel({
 
 export default function ThreeLaptop() {
   const mouse = useRef({ x: 0, y: 0 });
+  const isScrolling = useScrollPause();
 
   const handleMouseMove = (event) => {
     mouse.current.x = (event.clientX / window.innerWidth) * 2 - 1;
@@ -65,7 +72,8 @@ export default function ThreeLaptop() {
   return (
     <div className="h-full w-full cursor-grab active:cursor-grabbing" onMouseMove={handleMouseMove}>
       <Canvas
-        dpr={[1, 1.75]}
+        frameloop={isScrolling ? "demand" : "always"}
+        dpr={isScrolling ? [0.65, 0.95] : [1, 1.75]}
         gl={{ antialias: true, alpha: true }}
         camera={{ position: [0, 0.9, 4.6], fov: 48 }}
       >

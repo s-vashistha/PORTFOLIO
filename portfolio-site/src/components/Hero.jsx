@@ -12,7 +12,7 @@ const highlights = [
 const canvasNotes = ["GLTF model", "Pointer rig", "Lighting pass", "Orbit controls"];
 
 export default function Hero() {
-  const resumeUrl = `${import.meta.env.BASE_URL}Saumya_Software_Engineer_Full-Stack.pdf`;
+  const resumeUrl = `${import.meta.env.BASE_URL}Saumya_ThreeJS_Developer.pdf`;
 
   return (
     <section id="top" className="relative overflow-hidden">

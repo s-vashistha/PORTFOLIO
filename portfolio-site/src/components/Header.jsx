@@ -10,7 +10,7 @@ const navItems = [
 ];
 
 export default function Header() {
-  const resumeUrl = `${import.meta.env.BASE_URL}Saumya_Software_Engineer_Full-Stack.pdf`;
+  const resumeUrl = `${import.meta.env.BASE_URL}Saumya_ThreeJS_Developer.pdf`;
 
   return (
     <header className="sticky top-0 z-50 border-b border-white/10 bg-[#05070a]/82 backdrop-blur-xl">
@@ -22,7 +22,7 @@ export default function Header() {
           <span>
             <span className="block text-base font-black text-white">Saumya Mishra</span>
             <span className="block text-xs font-semibold uppercase tracking-[0.18em] text-slate-400">
-              Full Stack Engineer
+              Software Engineer-Full Stack
             </span>
           </span>
         </a>
@@ -47,7 +47,7 @@ export default function Header() {
           >
             GitHub
           </a>
-          <a href={resumeUrl} download className="btn-primary">
+          <a href={resumeUrl} download className="btn-primary" aria-label="Download resume">
             Resume
           </a>
         </div>
